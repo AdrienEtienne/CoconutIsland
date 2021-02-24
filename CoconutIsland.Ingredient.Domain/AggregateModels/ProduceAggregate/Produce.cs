@@ -4,7 +4,7 @@ using CoconutIsland.Structure.Aggregate;
 namespace CoconutIsland.Ingredient.Domain.AggregateModels.ProduceAggregate
 {
     public class Produce : Entity, IAggregateRoot
-    { 
+    {
         internal Produce(int id, NameType name) : base(id)
         {
             Name = name;

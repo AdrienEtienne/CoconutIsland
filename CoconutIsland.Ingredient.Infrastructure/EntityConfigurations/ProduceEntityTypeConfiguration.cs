@@ -14,7 +14,7 @@ namespace CoconutIsland.Ingredient.Infrastructure.EntityConfigurations
             builder
                 .Property(entity => entity.Id)
                 .ValueGeneratedOnAddOrUpdate();
-            
+
             // Name
             builder
                 .Property(cr => cr.Name)

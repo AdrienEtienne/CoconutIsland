@@ -12,8 +12,8 @@ namespace CoconutIsland.Ingredient.Infrastructure.Repositories
 {
     public class ProduceRepository : IProduceRepository
     {
-        private readonly IngredientContext _ingredientContext;
         private readonly Director _director;
+        private readonly IngredientContext _ingredientContext;
 
         public ProduceRepository(IngredientContext ingredientContext, Director director)
         {

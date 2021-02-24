@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CoconutIsland
+﻿namespace CoconutIsland
 {
     public class Class1
     {

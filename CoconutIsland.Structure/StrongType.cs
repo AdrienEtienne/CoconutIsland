@@ -3,7 +3,7 @@
     public abstract class StrongType
     {
         /// <summary>
-        /// Nice presentation of the Strong Type
+        ///     Nice presentation of the Strong Type
         /// </summary>
         /// <returns></returns>
         public abstract override string ToString();

@@ -6,6 +6,6 @@ namespace CoconutIsland.Structure.Aggregate
 {
     public interface IUnitOfWork : IDisposable
     {
-        Task<bool> CompleteAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<bool> CompleteAsync(CancellationToken cancellationToken = default);
     }
 }

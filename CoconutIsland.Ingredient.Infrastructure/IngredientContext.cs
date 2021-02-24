@@ -1,6 +1,5 @@
 using System.Threading;
 using System.Threading.Tasks;
-using CoconutIsland.Ingredient.Domain.AggregateModels.ProduceAggregate;
 using CoconutIsland.Ingredient.Infrastructure.Entities;
 using CoconutIsland.Ingredient.Infrastructure.EntityConfigurations;
 using CoconutIsland.Structure.Aggregate;
@@ -12,8 +11,8 @@ namespace CoconutIsland.Ingredient.Infrastructure
 {
     public class IngredientContext : DbContext, IUnitOfWork
     {
-        private readonly IMediator _mediator;
         private readonly Director _director;
+        private readonly IMediator _mediator;
 
         public IngredientContext(IMediator mediator, Director director)
         {
@@ -22,13 +21,8 @@ namespace CoconutIsland.Ingredient.Infrastructure
         }
 
         public DbSet<ProduceEntity> Produces { get; set; } = null!;
-        
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfiguration(new ProduceEntityTypeConfiguration());
-        }
 
-        public async Task<bool> CompleteAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<bool> CompleteAsync(CancellationToken cancellationToken = default)
         {
             // Dispatch Domain Events collection. 
             // Choices:
@@ -43,6 +37,11 @@ namespace CoconutIsland.Ingredient.Infrastructure
             var result = await base.SaveChangesAsync(cancellationToken);
 
             return true;
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ProduceEntityTypeConfiguration());
         }
     }
 }

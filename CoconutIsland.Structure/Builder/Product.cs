@@ -12,12 +12,12 @@ namespace CoconutIsland.Structure.Builder
         {
             AddDomainEventDelegate?.Invoke(notification);
         }
-        
+
         protected void RemoveDomainEvent(INotification notification)
         {
             RemoveDomainEventDelegate?.Invoke(notification);
         }
-        
+
         protected void ClearDomainEvents()
         {
             ClearDomainEventsDelegate?.Invoke();

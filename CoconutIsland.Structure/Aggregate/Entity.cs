@@ -4,12 +4,12 @@ namespace CoconutIsland.Structure.Aggregate
 {
     public abstract class Entity : Product
     {
-        public int Id { get; }
-
         protected Entity(int? id = null)
         {
             Id = id ?? Id;
         }
+
+        public int Id { get; }
 
         public bool IsTransient()
         {

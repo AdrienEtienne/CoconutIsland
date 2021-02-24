@@ -5,21 +5,13 @@ namespace CoconutIsland.Structure.Builder
 {
     public class Director
     {
-        private AddDomainEventDelegate _addDomainEventDelegate;
+        private readonly AddDomainEventDelegate _addDomainEventDelegate;
 
-        internal delegate void AddDomainEventDelegate(INotification notification);
+        private readonly ClearDomainEventsDelegate _clearDomainEventsDelegate;
 
-        private RemoveDomainEventDelegate _removeDomainEventDelegate;
+        private readonly List<INotification> _domainEvents = new();
 
-        internal delegate void RemoveDomainEventDelegate(INotification notification);
-
-        private ClearDomainEventsDelegate _clearDomainEventsDelegate;
-
-        internal delegate void ClearDomainEventsDelegate();
-
-        private List<INotification> _domainEvents = new List<INotification>();
-
-        public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
+        private readonly RemoveDomainEventDelegate _removeDomainEventDelegate;
 
         public Director()
         {
@@ -27,6 +19,8 @@ namespace CoconutIsland.Structure.Builder
             _removeDomainEventDelegate = notification => _domainEvents.Remove(notification);
             _clearDomainEventsDelegate = () => _domainEvents.Clear();
         }
+
+        public IReadOnlyCollection<INotification> DomainEvents => _domainEvents.AsReadOnly();
 
         public T Build<T>(Builder<T> builder) where T : Product
         {
@@ -38,5 +32,11 @@ namespace CoconutIsland.Structure.Builder
 
             return product;
         }
+
+        internal delegate void AddDomainEventDelegate(INotification notification);
+
+        internal delegate void RemoveDomainEventDelegate(INotification notification);
+
+        internal delegate void ClearDomainEventsDelegate();
     }
 }

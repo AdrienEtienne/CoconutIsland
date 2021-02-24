@@ -7,17 +7,26 @@ namespace CoconutIsland.Structure.Aggregate
 {
     public abstract class Enumeration : IComparable
     {
-        private readonly int _id;
-        public int Id => _id;
-        public string Name { get; }
-
         protected Enumeration(int id, string name)
         {
-            _id = id;
+            Id = id;
             Name = name;
         }
 
-        public override string ToString() => Name;
+        public int Id { get; }
+
+        public string Name { get; }
+
+        public int CompareTo(object? other)
+        {
+            if (other == null) throw new ArgumentNullException(nameof(other));
+            return Id.CompareTo(((Enumeration) other).Id);
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
 
         public static IEnumerable<T> GetAll<T>() where T : Enumeration
         {
@@ -28,10 +37,7 @@ namespace CoconutIsland.Structure.Aggregate
 
         public override bool Equals(object? obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj == null) return false;
 
             var otherValue = (Enumeration) obj;
 
@@ -41,7 +47,10 @@ namespace CoconutIsland.Structure.Aggregate
             return typeMatches && valueMatches;
         }
 
-        public override int GetHashCode() => Id.GetHashCode();
+        public override int GetHashCode()
+        {
+            return Id.GetHashCode();
+        }
 
         public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
         {
@@ -66,17 +75,9 @@ namespace CoconutIsland.Structure.Aggregate
             var matchingItem = GetAll<T>().FirstOrDefault(predicate);
 
             if (matchingItem == null)
-            {
                 throw new InvalidOperationException($"'{value}' is not a valid {description} in {typeof(T)}");
-            }
 
             return matchingItem;
-        }
-
-        public int CompareTo(object? other)
-        {
-            if (other == null) throw new ArgumentNullException(nameof(other));
-            return Id.CompareTo(((Enumeration) other).Id);
         }
     }
 }
