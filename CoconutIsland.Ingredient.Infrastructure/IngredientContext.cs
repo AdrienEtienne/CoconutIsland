@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using CoconutIsland.Ingredient.Domain.AggregateModels.ProduceAggregate;
+using CoconutIsland.Ingredient.Infrastructure.Entities;
 using CoconutIsland.Ingredient.Infrastructure.EntityConfigurations;
 using CoconutIsland.Structure.Aggregate;
 using CoconutIsland.Structure.Builder;
@@ -20,7 +21,7 @@ namespace CoconutIsland.Ingredient.Infrastructure
             _director = director;
         }
 
-        public DbSet<Produce> Produces { get; set; } = null!;
+        public DbSet<ProduceEntity> Produces { get; set; } = null!;
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

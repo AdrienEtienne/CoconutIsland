@@ -1,21 +1,27 @@
-using CoconutIsland.Ingredient.Domain.AggregateModels.ProduceAggregate;
+using CoconutIsland.Ingredient.Infrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CoconutIsland.Ingredient.Infrastructure.EntityConfigurations
 {
-    public class ProduceEntityTypeConfiguration : IEntityTypeConfiguration<Produce>
+    public class ProduceEntityTypeConfiguration : IEntityTypeConfiguration<ProduceEntity>
     {
-        public void Configure(EntityTypeBuilder<Produce> builder)
+        public void Configure(EntityTypeBuilder<ProduceEntity> builder)
         {
-            builder.HasKey(cr => cr.Id);
+            // Id
+            builder
+                .HasKey(cr => cr.Id);
             builder
                 .Property(entity => entity.Id)
                 .ValueGeneratedOnAddOrUpdate();
             
+            // Name
             builder
                 .Property(cr => cr.Name)
+                .HasMaxLength(30)
                 .IsRequired();
+            builder
+                .HasIndex(entity => entity.Name);
         }
     }
 }
