@@ -1,0 +1,28 @@
+# IDE
+.idea/
+.vs/
+.vscode/
+launchSettings.json
+
+# User-specific
+**/*.DotSettings.user
+src/*/Properties
+
+# Build
+bin/
+obj/
+lib/
+wwwroot/
+nupkgs/
+publish/
+webpack.stats.json
+
+# Node
+node_modules/
+artifacts/
+
+# OS
+.DS_Store
+
+# Migration helper
+.migrate.*
