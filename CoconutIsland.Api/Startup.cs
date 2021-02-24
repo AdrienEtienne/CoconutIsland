@@ -1,4 +1,5 @@
 using CoconutIsland.Api.Configuration;
+using CoconutIsland.Ingredient.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -30,6 +31,8 @@ namespace CoconutIsland.Api
                 c.SwaggerDoc("v1",
                     new OpenApiInfo {Title = "CoconutIsland.Api", Version = "v1"});
             });
+
+            services.AddIngredientApplication();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

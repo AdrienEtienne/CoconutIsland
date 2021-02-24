@@ -11,7 +11,7 @@ namespace CoconutIsland.Ingredient.Application
 {
     public static class Extensions
     {
-        public static void AddPaymentApplication(this IServiceCollection services)
+        public static void AddIngredientApplication(this IServiceCollection services)
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
 

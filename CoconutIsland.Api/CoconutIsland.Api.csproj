@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\CoconutIsland.Ingredient.Application\CoconutIsland.Ingredient.Application.csproj" />
       <ProjectReference Include="..\CoconutIsland.Ingredient.Domain\CoconutIsland.Ingredient.Domain.csproj" />
     </ItemGroup>
 
