@@ -6,6 +6,6 @@ namespace CoconutIsland.Ingredient.Domain.AggregateModels.ProduceAggregate
 {
     public interface IProduceRepository : IRepository<Produce>
     {
-        Task<IEnumerable<Produce>> ListAll();
+        Task<IEnumerable<Produce>> ListAllAsync();
     }
 }

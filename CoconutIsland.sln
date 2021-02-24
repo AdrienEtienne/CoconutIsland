@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoconutIsland.Ingredient.In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoconutIsland.Ingredient.Application", "CoconutIsland.Ingredient.Application\CoconutIsland.Ingredient.Application.csproj", "{8EAAFB26-61EE-48D0-9DBF-6703837288B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoconutIsland.Api", "CoconutIsland.Api\CoconutIsland.Api.csproj", "{9C704E9D-40E4-447A-B585-01A0DAB1F8F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{8EAAFB26-61EE-48D0-9DBF-6703837288B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EAAFB26-61EE-48D0-9DBF-6703837288B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EAAFB26-61EE-48D0-9DBF-6703837288B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C704E9D-40E4-447A-B585-01A0DAB1F8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C704E9D-40E4-447A-B585-01A0DAB1F8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C704E9D-40E4-447A-B585-01A0DAB1F8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C704E9D-40E4-447A-B585-01A0DAB1F8F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

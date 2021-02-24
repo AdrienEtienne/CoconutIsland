@@ -26,7 +26,7 @@ namespace CoconutIsland.Ingredient.Infrastructure.Repositories
         public IUnitOfWork UnitOfWork => this._ingredientContext;
 
 
-        public async Task<IEnumerable<Produce>> ListAll()
+        public async Task<IEnumerable<Produce>> ListAllAsync()
         {
             var produceEntities = await this._ingredientContext.Produces.ToListAsync();
 

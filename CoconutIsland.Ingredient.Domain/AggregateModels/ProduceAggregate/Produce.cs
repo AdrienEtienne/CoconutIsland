@@ -5,7 +5,7 @@ namespace CoconutIsland.Ingredient.Domain.AggregateModels.ProduceAggregate
 {
     public class Produce : Entity, IAggregateRoot
     {
-        internal Produce(int id, NameType name) : base(id)
+        public Produce(int id, NameType name) : base(id)
         {
             this.Name = name;
         }
