@@ -7,9 +7,7 @@ namespace CoconutIsland.Ingredient.Domain.Builders
 {
     public class ProduceBuilder : Builder<Produce>
     {
-        public ProduceBuilder(int id, NameType name) : base(new Produce(id, name))
-        {
-        }
+        public ProduceBuilder(int id, NameType name) : base(new Produce(id, name)) { }
 
 
         protected override AbstractValidator<Produce> GetValidator()

@@ -10,7 +10,9 @@ namespace CoconutIsland.Ingredient.Infrastructure
                                                            Director director)
         {
             foreach ( var domainEvent in director.DomainEvents )
+            {
                 await mediator.Publish(domainEvent);
+            }
         }
     }
 }
