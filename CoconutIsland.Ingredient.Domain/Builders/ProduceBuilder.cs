@@ -11,6 +11,7 @@ namespace CoconutIsland.Ingredient.Domain.Builders
         {
         }
 
+
         protected override AbstractValidator<Produce> GetValidator()
         {
             var validator = new InlineValidator<Produce>();

@@ -6,9 +6,10 @@ namespace CoconutIsland.Ingredient.Infrastructure
 {
     internal static class MediatorExtensions
     {
-        public static async Task DispatchDomainEventsAsync(this IMediator mediator, Director director)
+        public static async Task DispatchDomainEventsAsync(this IMediator mediator,
+                                                           Director director)
         {
-            foreach (var domainEvent in director.DomainEvents)
+            foreach ( var domainEvent in director.DomainEvents )
                 await mediator.Publish(domainEvent);
         }
     }

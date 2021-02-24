@@ -15,19 +15,22 @@ namespace CoconutIsland.Ingredient.Infrastructure.Repositories
         private readonly Director _director;
         private readonly IngredientContext _ingredientContext;
 
+
         public ProduceRepository(IngredientContext ingredientContext, Director director)
         {
-            _ingredientContext = ingredientContext;
-            _director = director;
+            this._ingredientContext = ingredientContext;
+            this._director = director;
         }
 
-        public IUnitOfWork UnitOfWork => _ingredientContext;
+
+        public IUnitOfWork UnitOfWork => this._ingredientContext;
+
 
         public async Task<IEnumerable<Produce>> ListAll()
         {
-            var produceEntities = await _ingredientContext.Produces.ToListAsync();
+            var produceEntities = await this._ingredientContext.Produces.ToListAsync();
 
-            return produceEntities.Select(entity => _director.Build(new ProduceBuilder(
+            return produceEntities.Select(entity => this._director.Build(new ProduceBuilder(
                 entity.Id,
                 new NameType(entity.Name))));
         }

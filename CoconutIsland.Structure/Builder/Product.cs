@@ -8,19 +8,22 @@ namespace CoconutIsland.Structure.Builder
         internal Director.RemoveDomainEventDelegate? RemoveDomainEventDelegate { get; set; }
         internal Director.ClearDomainEventsDelegate? ClearDomainEventsDelegate { get; set; }
 
+
         protected void AddDomainEvent(INotification notification)
         {
-            AddDomainEventDelegate?.Invoke(notification);
+            this.AddDomainEventDelegate?.Invoke(notification);
         }
+
 
         protected void RemoveDomainEvent(INotification notification)
         {
-            RemoveDomainEventDelegate?.Invoke(notification);
+            this.RemoveDomainEventDelegate?.Invoke(notification);
         }
+
 
         protected void ClearDomainEvents()
         {
-            ClearDomainEventsDelegate?.Invoke();
+            this.ClearDomainEventsDelegate?.Invoke();
         }
     }
 }

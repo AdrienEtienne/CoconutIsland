@@ -6,33 +6,37 @@ namespace CoconutIsland.Structure.Aggregate
     {
         protected Entity(int? id = null)
         {
-            Id = id ?? Id;
+            this.Id = id ?? this.Id;
         }
+
 
         public int Id { get; }
 
+
         public bool IsTransient()
         {
-            return Id == 0;
+            return this.Id == 0;
         }
+
 
         public override bool Equals(object? obj)
         {
-            if (!(obj is Entity))
+            if ( !( obj is Entity ) )
                 return false;
 
-            if (ReferenceEquals(this, obj))
+            if ( ReferenceEquals(this, obj) )
                 return true;
 
-            if (GetType() != obj.GetType())
+            if ( this.GetType() != obj.GetType() )
                 return false;
 
-            var item = (Entity) obj;
+            var item = ( Entity ) obj;
 
-            if (item.IsTransient() || IsTransient())
+            if ( item.IsTransient() || this.IsTransient() )
                 return false;
-            return item.Id == Id;
+            return item.Id == this.Id;
         }
+
 
         public override int GetHashCode()
         {
@@ -40,14 +44,16 @@ namespace CoconutIsland.Structure.Aggregate
             return 0;
         }
 
+
         public static bool operator ==(Entity? left, Entity? right)
         {
             return left?.Equals(right) ?? false;
         }
 
+
         public static bool operator !=(Entity left, Entity right)
         {
-            return !(left == right);
+            return !( left == right );
         }
     }
 }

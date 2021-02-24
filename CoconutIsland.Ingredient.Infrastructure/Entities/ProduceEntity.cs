@@ -4,9 +4,10 @@ namespace CoconutIsland.Ingredient.Infrastructure.Entities
     {
         public ProduceEntity(int id, string name)
         {
-            Id = id;
-            Name = name;
+            this.Id = id;
+            this.Name = name;
         }
+
 
         public int Id { get; }
 

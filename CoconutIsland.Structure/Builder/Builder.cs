@@ -8,22 +8,24 @@ namespace CoconutIsland.Structure.Builder
     {
         protected Builder(T product)
         {
-            Product = product;
+            this.Product = product;
         }
+
 
         protected T Product { get; set; }
 
         protected abstract AbstractValidator<T> GetValidator();
 
+
         internal T GetProduct()
         {
-            if (Product == null) throw new NoNullAllowedException("Part is currently null.");
+            if ( this.Product == null ) throw new NoNullAllowedException("Part is currently null.");
 
-            var validator = GetValidator();
-            var validationResult = validator.Validate(Product);
-            if (!validationResult.IsValid) throw new Exception("Part not valid.");
+            var validator = this.GetValidator();
+            var validationResult = validator.Validate(this.Product);
+            if ( !validationResult.IsValid ) throw new Exception("Part not valid.");
 
-            return Product;
+            return this.Product;
         }
     }
 }

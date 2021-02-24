@@ -6,14 +6,16 @@ namespace CoconutIsland.Ingredient.Domain.StrongTypes
     {
         public NameType(string name)
         {
-            Name = name;
+            this.Name = name;
         }
+
 
         public string Name { get; }
 
+
         public override string ToString()
         {
-            return Name;
+            return this.Name;
         }
     }
 }

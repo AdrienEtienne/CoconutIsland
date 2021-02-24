@@ -7,8 +7,9 @@ namespace CoconutIsland.Ingredient.Domain.AggregateModels.ProduceAggregate
     {
         internal Produce(int id, NameType name) : base(id)
         {
-            Name = name;
+            this.Name = name;
         }
+
 
         public NameType Name { get; }
     }
