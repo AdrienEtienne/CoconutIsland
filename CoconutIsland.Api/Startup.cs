@@ -1,11 +1,15 @@
+using System;
 using CoconutIsland.Api.Configuration;
 using CoconutIsland.Ingredient.Application;
+using CoconutIsland.Ingredient.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Npgsql;
 
 namespace CoconutIsland.Api
 {
@@ -33,6 +37,21 @@ namespace CoconutIsland.Api
             });
 
             services.AddIngredientApplication();
+
+            services.AddDbContext<IngredientContext>(options =>
+            {
+                options.UseNpgsql(new NpgsqlConnection()
+                {
+                    ConnectionString = new NpgsqlConnectionStringBuilder()
+                    {
+                        Host = "localhost",
+                        Database = "postgres",
+                        Username = "postgres",
+                        Password = "",
+                        Port = 5432,
+                    }.ConnectionString
+                }, builder => { builder.SetPostgresVersion(new Version(11, 6)); });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
